@@ -164,13 +164,11 @@ dotnet ef migrations remove
 
 - No unit tests included to prioritize rapid prototyping and core functionality
 - Trade-off: Faster initial development cycle with focus on feature delivery over test coverage
-- Enables quick iteration and demonstration of core concepts
 
 ### Error Handling:
 
 - Streamlined error handling focused on essential scenarios
 - Trade-off: Simplified codebase with clear error paths, prioritizing readability and maintainability
-- Basic validation ensures data integrity without over-engineering
 
 ### Authentication & Authorization:
 
