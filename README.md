@@ -1,4 +1,4 @@
-# Task Management API
+# Task Manager API
 
 A RESTful API built with ASP.NET Core and Entity Framework for managing task data.
 
@@ -50,7 +50,7 @@ dotnet run
 ## Project Structure
 
 ```
-task-management-api/
+TASKMANAGERAPI/
 ├── Controllers/
 │   └── TasksController.cs    # API endpoints and route handling
 ├── DTOs/
