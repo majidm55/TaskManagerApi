@@ -1,22 +1,24 @@
 using Microsoft.EntityFrameworkCore;
+using TaskManagerApi.Models;
 using TaskManagerApi.Models.Responses;
 
 namespace TaskManagerApi.Extensions
 {
     public static class QueryableExtensions
     {
-        public static async Task<PagedResult<T>> ToPagedResultAsync<T>(
-            this IQueryable<T> query, 
+        public static async Task<PagedResult<TaskItem>> ToPagedResultAsync(
+            this IQueryable<TaskItem> query, 
             int pageNumber, 
             int pageSize)
         {
             var totalCount = await query.CountAsync();
             var items = await query
+                .OrderBy(x => x.CreatedAt)
                 .Skip((pageNumber - 1) * pageSize)
                 .Take(pageSize)
                 .ToListAsync();
             
-            return new PagedResult<T>
+            return new PagedResult<TaskItem>
             {
                 Data = items,
                 PageNumber = pageNumber,

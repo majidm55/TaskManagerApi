@@ -11,7 +11,7 @@ namespace TaskManagerApi.Models
   {
     public int Id { get; set; }
     public required string Title { get; set; }
-
+    public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
     public TaskStatus Status { get; set; } = TaskStatus.Pending;
   }
   
