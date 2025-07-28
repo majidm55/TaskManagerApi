@@ -15,7 +15,7 @@ A RESTful API built with ASP.NET Core and Entity Framework for managing task dat
 1. Navigate to project directory:
 
 ```bash
-cd task-management-api
+cd TaskManagerApi
 ```
 
 2. Restore dependencies:
@@ -50,7 +50,7 @@ dotnet run
 ## Project Structure
 
 ```
-TASKMANAGERAPI/
+TaskManagerApi/
 ├── Controllers/
 │   └── TasksController.cs    # API endpoints and route handling
 ├── DTOs/
@@ -89,7 +89,7 @@ Core entity with the following attributes:
 ### Response Models
 
 - `AnalyticsResponse`: Contains task statistics and distribution data
-- `PaginatedTaskResponse`: Wraps task collections with pagination metadata
+- `PaginatedTaskResponse`: Wraps task collections with pagination metadata and sort items on created date
 
 ## Database Setup
 
