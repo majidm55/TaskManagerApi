@@ -94,18 +94,18 @@ The application uses Entity Framework Core for database models:
 Core entity with the following attributes:
 
 - `Id`: Primary key
-- `Name`: Task title/description
-- `Status`: Task status (Pending, InProgress, Completed, Cancelled)
+- `Title`: Task title/description
+- `Status`: Task status (Pending, InProgress, Completed, Archived)
 - `CreatedAt`: Timestamp of task creation
 
 ### Response Models
 
-- `AnalyticsResponse`: Contains task statistics and distribution data
-- `PaginatedTaskResponse`: Wraps task collections with pagination metadata and sort items on created date
+- `AnalyticsResponse`: Contains task statistics 
+- `PaginatedTaskResponse`: Wraps task collections with pagination metadata and sorts items on created date
 
 ## Database Setup
 
-1. The application uses SQLite. Database file `tasks.db` is included with pre-populated data
+1. The application uses SQLite. Database file `taskmanager.db` is included with pre-populated data
 2. Database context automatically creates tables and seeds data on startup
 3. To run migrations manually:
 
