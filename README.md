@@ -1,3 +1,9 @@
+
+
+
+
+
+
 # Task Manager API
 
 A RESTful API built with ASP.NET Core and Entity Framework for managing task data.
@@ -12,23 +18,29 @@ A RESTful API built with ASP.NET Core and Entity Framework for managing task dat
 
 ## Installation
 
-1. Navigate to project directory:
+
+1. Use the guide to install .NET SDK - 9 (using Linux for mine)
+    https://learn.microsoft.com/en-gb/dotnet/core/install/linux-debian?tabs=dotnet9
+
+2. Install Entity Framework tools (if not already installed):
+
+```bash
+dotnet tool install --global dotnet-ef
+```
+
+3. Navigate to project directory:
 
 ```bash
 cd TaskManagerApi
 ```
 
-2. Restore dependencies:
+4. Restore dependencies:
 
 ```bash
 dotnet restore
 ```
 
-3. Install Entity Framework tools (if not already installed):
 
-```bash
-dotnet tool install --global dotnet-ef
-```
 
 ## Configuration
 
