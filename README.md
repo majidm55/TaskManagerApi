@@ -56,8 +56,8 @@ dotnet restore
 dotnet run
 ```
 
-2. Open your web browser and go to `http://localhost:5157` to access the API
-3. API Documentation available at: `http://localhost:5157/scalar/v1`
+
+2. API Documentation available at: `http://localhost:5157/scalar/v1`
 
 ## Project Structure
 
