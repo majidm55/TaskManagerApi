@@ -1,14 +1,17 @@
 using Microsoft.AspNetCore.Mvc;
 using TaskManagerApi.Models;
 using TaskStatusEnum = TaskManagerApi.Models.TaskStatus;
+using TaskManagerApi.DTO;
 using TaskManagerApi.Data;
 using Microsoft.EntityFrameworkCore;
+using TaskManagerApi.Models.Responses;
+using TaskManagerApi.Extensions;
 
 
 namespace TaskManagerApi.Controllers;
 
 [ApiController]
-[Route("api/[controller]")]
+[Route("api/tasks")]
 public class TaskManagerController : ControllerBase
 {
     private readonly TaskItemDbContext _context;
@@ -20,10 +23,28 @@ public class TaskManagerController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<TaskItem>>> GetAllTasks()
+    public async Task<ActionResult<GroupedTasksResponse>> GetAllTasks([FromQuery] PaginationParameters paginationParams)
     {
-        var tasks = await _context.TaskItems.ToListAsync();
-        return Ok(tasks);
+        var grouped = new GroupedTasksResponse
+        {
+            Pending = await _context.TaskItems
+                .Where(t => t.Status == TaskStatusEnum.Pending)
+                .ToPagedResultAsync(paginationParams.PageNumber, paginationParams.PageSize),
+                
+            InProgress = await _context.TaskItems
+                .Where(t => t.Status == TaskStatusEnum.InProgress)
+                .ToPagedResultAsync(paginationParams.PageNumber, paginationParams.PageSize),
+                
+            Completed = await _context.TaskItems
+                .Where(t => t.Status == TaskStatusEnum.Completed)
+                .ToPagedResultAsync(paginationParams.PageNumber, paginationParams.PageSize),
+                
+            Archived = await _context.TaskItems
+                .Where(t => t.Status == TaskStatusEnum.Archived)
+                .ToPagedResultAsync(paginationParams.PageNumber, paginationParams.PageSize)
+        };
+        
+        return Ok(grouped);
     }
 
     [HttpGet("{id}")]
@@ -96,14 +117,12 @@ public class TaskManagerController : ControllerBase
         return NoContent();
     }
 
-    [HttpGet("status/{status}")]
-    public async Task<ActionResult<IEnumerable<TaskItem>>> GetTasksByStatus(TaskStatusEnum status)
+    [HttpGet("analytics")]
+    public async Task<ActionResult<GroupedAnalyticsResponse>> GetTaskAnalytics()
     {
-        var tasks = await _context.TaskItems
-            .Where(t => t.Status == status)
-            .ToListAsync();
-        
-        return Ok(tasks);
+        var analytics = await _context.TaskItems.ToAnalyticsAsync();
+
+        return Ok(analytics);
     }
 
 

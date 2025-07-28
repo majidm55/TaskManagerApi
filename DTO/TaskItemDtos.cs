@@ -1,4 +1,5 @@
-namespace TaskManagerApi.Models
+using TaskStatus = TaskManagerApi.Models.TaskStatus;
+namespace TaskManagerApi.DTO
 {
     public class TaskItemUpdateDto
     {
