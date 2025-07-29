@@ -118,18 +118,6 @@ The application provides the following REST endpoints:
 
 - `GET /api/tasks/analytics` - Get task statistics and distribution
 
-## Running the Application
-
-1. Start the ASP.NET Core server:
-
-```bash
-dotnet run
-```
-
-2. Access the API:
-
-- API Documentation: http://localhost:5157/scalar/v1
-- API Base URL: http://localhost:5157/api/
 
 ## Development Notes
 
