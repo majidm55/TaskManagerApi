@@ -103,22 +103,6 @@ Core entity with the following attributes:
 - `AnalyticsResponse`: Contains task statistics 
 - `PaginatedTaskResponse`: Wraps task collections with pagination metadata and sorts items on created date
 
-## Database Setup
-
-1. The application uses SQLite. Database file `taskmanager.db` is included with pre-populated data
-2. Database context automatically creates tables and seeds data on startup
-3. To run migrations manually:
-
-```bash
-dotnet ef database update
-```
-
-4. To create new migrations:
-
-```bash
-dotnet ef migrations add MigrationName
-```
-
 ## API Endpoints
 
 The application provides the following REST endpoints:
