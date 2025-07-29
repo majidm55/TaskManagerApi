@@ -44,7 +44,7 @@ dotnet restore
 
 ## Configuration
 
-1. The database resides within a SQLite file named `tasks.db` (included with pre-populated data)
+1. The database resides within a SQLite file named `taskmanager.db` (included with pre-populated data)
 2. Connection string is configured in `appsettings.json`
 3. Database context is configured with seeded data for immediate testing
 
